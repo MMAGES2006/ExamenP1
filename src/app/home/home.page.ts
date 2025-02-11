@@ -37,4 +37,9 @@ export class HomePage {
     }
   }
 
+  ngOnInit() {
+    this.examenService.getlistQuote().subscribe((data) => {this.Quotelist = data
+          })
+
+        }
 }
