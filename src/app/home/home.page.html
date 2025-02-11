@@ -74,6 +74,11 @@
     </tbody>
   </table>
 
-  
+  <h1>Categories</h1>
+    <ion-card *ngFor="let item of Quotelist; index as i">
+      <ion-card-header>
+        <ion-card-title>{{ item.q }} </ion-card-title>
+      </ion-card-header>
+    </ion-card>
 
 </ion-content>
