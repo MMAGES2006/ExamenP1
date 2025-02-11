@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { ExamenService } from '../examen.service';
+
 
 
 @Component({
@@ -10,10 +11,14 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
 
+  Quotelist: any = [];
+
+
   items: {movie: string; date: string; Producer: string; Pcasa: string; main: string}[] = [];
   nextId: number = 1;  
 
-  constructor(public navCtrl: NavController) {}
+
+  constructor(private examenService: ExamenService) {}
 
 
   addItem(movie: string, date: string, Producer: string, Pcasa: string, main: string): void 
@@ -26,10 +31,9 @@ export class HomePage {
         Pcasa: Pcasa.trim(),
         main: main.trim(),
         
-
       });
     } else {
-      console.error('El nombre y la fecha no pueden estar vacios');
+      console.error('Los elementos no pueden estar vacios');
     }
   }
 

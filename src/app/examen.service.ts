@@ -8,5 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class ExamenService {
 
+  private apiUrl = 'https://qapi.vercel.app/api/random'
+
   constructor(private http: HttpClient) { }
+
+  getlistQuote(): Observable<any> {
+    return this.http.get(`${this.apiUrl}`);
+  }
+
+
 }
