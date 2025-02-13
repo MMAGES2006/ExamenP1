@@ -20,8 +20,7 @@ export class HomePage {
 
   constructor(private examenService: ExamenService) {}
 
-
-  addItem(movie: string, date: string, Producer: string, Pcasa: string, main: string): void 
+  addItem(movie: string, date: string, Producer: string, Pcasa: string, main: string,): void 
   {
     if (movie.trim() && date.trim() && Producer.trim() && Pcasa.trim() && main.trim()) {
       this.items.push({
@@ -36,5 +35,11 @@ export class HomePage {
       console.error('Los elementos no pueden estar vacios');
     }
   }
+  
 
+  ngOnInit() {
+
+    this.examenService.getlistQuote().subscribe((data) => {this.Quotelist = data
+          })
+        }
 }
