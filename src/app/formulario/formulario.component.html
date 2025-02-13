@@ -1,3 +1,60 @@
-<p>
-  formulario works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Pelis
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-list>
+  <ion-item routerLink="/home">Go to home</ion-item>
+</ion-list>
+
+<h2 id="h2"> Catalogo de peliculas </h2> 
+<input #movieInput type = "text" placeholder="Nombre de la pelicula" class="input"/>
+<br>
+<br>
+<input #Redate type = "number" placeholder="Año de lanzamiento" class="input"/>
+<br>
+<br>
+<input #Producer type = "text" placeholder="Productor" class="input"/>
+<br> 
+<br>
+<input #Phouse type = "text" placeholder="Casa productora" class="input"/>
+<br>
+<br>
+<input #Prota type = "text" placeholder="Protagonista" class="input"/>
+<br>
+<br>
+
+
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click) = "addItem(movieInput.value, Redate.value, Producer.value, Phouse.value, Prota.value); 
+movieInput.value = ''; Redate.value = ''; Producer.value = ''; Phouse.value =''; Prota.value;">
+  Agregar pelicula
+</button>
+
+<table border = "1" style = "margin-top: 20px; width: 100%; text-align: center;">
+  <thead>
+    <tr>
+      <th>Nombre de la pelicula</th>
+      <th>Año de lanzammiento</th>
+      <th>Productor</th>
+      <th>Casa productora</th>
+      <th>Protagonista</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor = "let item of items">
+      <td>{{ item.movie }}</td>
+      <td>{{ item.date }}</td>
+      <td>{{ item.Producer }}</td>
+      <td>{{ item.Pcasa }}</td>
+      <td>{{ item.main }}</td>
+    </tr>
+  </tbody>
+</table>
+
+</ion-content>
